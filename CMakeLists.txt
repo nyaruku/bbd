@@ -1,22 +1,35 @@
 ﻿cmake_minimum_required(VERSION 3.15)
 
+set(CMAKE_BUILD_PARALLEL_LEVEL 16)
+
 # enter your project name/application output name
 project(bbd LANGUAGES C)
 
 set(CMAKE_C_STANDARD 11)
 
-# Base directories
-set(BASE_INCLUDE_PATH "${CMAKE_SOURCE_DIR}/src/includes")
-set(BASE_LIB_PATH "${CMAKE_SOURCE_DIR}/src/libs")
+include(FetchContent)
 
-# STATIC LIB, you are a stupid fuck if u dont
-option(USE_STATIC_LIB "Use static library" ON)
+set(BUILD_EXAMPLES     OFF        CACHE BOOL   "" FORCE)
+set(BUILD_GAMES        OFF        CACHE BOOL   "" FORCE)
+set(OPENGL_VERSION     "Software" CACHE STRING "" FORCE)
+set(PLATFORM           "SDL"      CACHE STRING "" FORCE)
 
-# Add the include directories for the project
-include_directories(${BASE_INCLUDE_PATH} ${BUILD_INCLUDE_PATH})
+if (UNIX AND NOT APPLE)
+    set(SDL_X11       ON  CACHE BOOL "" FORCE)
+    set(SDL_WAYLAND   ON  CACHE BOOL "" FORCE)
+endif()
 
-# Add the library directories for linking
-link_directories(${BASE_LIB_PATH} ${BUILD_LIB_PATH})
+FetchContent_Declare(
+    raylib
+    GIT_REPOSITORY https://github.com/raysan5/raylib.git
+    GIT_TAG 6.0
+)
+FetchContent_MakeAvailable(raylib)
 
-# Project-specific CMakeLists.txt
 add_executable(${PROJECT_NAME} "./src/main.c")
+
+if (WIN32)
+    target_link_libraries(${PROJECT_NAME} PRIVATE raylib)
+elseif (UNIX AND NOT APPLE)
+    target_link_libraries(${PROJECT_NAME} PRIVATE raylib m)
+endif()
