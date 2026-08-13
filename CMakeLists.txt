@@ -9,14 +9,14 @@ set(CMAKE_C_STANDARD 11)
 
 include(FetchContent)
 
-set(BUILD_EXAMPLES     OFF        CACHE BOOL   "" FORCE)
-set(BUILD_GAMES        OFF        CACHE BOOL   "" FORCE)
-set(OPENGL_VERSION     "Software" CACHE STRING "" FORCE)
-set(PLATFORM           "SDL"      CACHE STRING "" FORCE)
+set(BUILD_EXAMPLES OFF        CACHE BOOL   "" FORCE)
+set(BUILD_GAMES    OFF        CACHE BOOL   "" FORCE)
+set(OPENGL_VERSION "Software" CACHE STRING "" FORCE)
+set(PLATFORM       "SDL"      CACHE STRING "" FORCE)
 
 if (UNIX AND NOT APPLE)
-    set(SDL_X11       ON  CACHE BOOL "" FORCE)
-    set(SDL_WAYLAND   ON  CACHE BOOL "" FORCE)
+    set(SDL_X11      ON  CACHE BOOL "" FORCE)
+    set(SDL_WAYLAND  ON  CACHE BOOL "" FORCE)
 endif()
 
 FetchContent_Declare(
