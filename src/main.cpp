@@ -1,13 +1,13 @@
 #include <cstdlib>
 #include <raylib/raylib.h>
+#define RAYGUI_IMPLEMENTATION
+#include <raylib/raygui.h>
 #include <json.hpp>
 
-int main()
-{
-    // don't remove
-    setenv("SDL_JOYSTICK_HIDAPI", "0", 1);
+int main() {
 
     InitWindow(800, 450, "raylib example - basic window");
+    GuiLoadStyle("resources/style.rgs");
     SetWindowState(FLAG_WINDOW_RESIZABLE);
 
     while (!WindowShouldClose()) {
