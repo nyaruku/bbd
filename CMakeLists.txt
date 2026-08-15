@@ -3,9 +3,9 @@
 set(CMAKE_BUILD_PARALLEL_LEVEL 16)
 
 # enter your project name/application output name
-project(bbd LANGUAGES C)
+project(bbd LANGUAGES CXX)
 
-set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 20)
 
 include(FetchContent)
 
@@ -26,7 +26,7 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(raylib)
 
-add_executable(${PROJECT_NAME} "./src/main.c")
+add_executable(${PROJECT_NAME} "./src/main.cpp")
 
 if (WIN32)
     target_link_libraries(${PROJECT_NAME} PRIVATE raylib)
