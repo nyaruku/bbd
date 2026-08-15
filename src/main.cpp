@@ -1,5 +1,6 @@
 #include <cstdlib>
-#include "raylib.h"
+#include <raylib/raylib.h>
+#include <json.hpp>
 
 int main()
 {
