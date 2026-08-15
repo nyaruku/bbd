@@ -1,7 +1,7 @@
-#include <stdlib.h>
+#include <cstdlib>
 #include "raylib.h"
 
-int main(void)
+int main()
 {
     // don't remove
     setenv("SDL_JOYSTICK_HIDAPI", "0", 1);
