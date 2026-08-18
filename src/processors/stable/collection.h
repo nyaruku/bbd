@@ -3,7 +3,7 @@
 #include "helper.h"
 #include "structs.h"
 
-namespace processor::stable::collection {
+namespace processor::osu::stable::collection {
     inline std::vector<structs::collection> parseCollectionDb(const std::string& path) {
         std::ifstream file(path, std::ios::binary);
         if (!file) {

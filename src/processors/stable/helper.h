@@ -4,7 +4,7 @@
 #include <stdexcept>
 #include <string>
 
-namespace processor::stable {
+namespace processor::osu::stable {
     inline void readBytes(std::istream& stream, void* dst, std::streamsize count) {
         if (!stream.read(static_cast<char*>(dst), count)) {
             throw std::runtime_error("Unexpected end of file");

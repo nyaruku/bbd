@@ -8,7 +8,7 @@
 #include "helper.h"
 #include "structs.h"
 
-namespace processor::stable::osu {
+namespace processor::osu::stable::osu {
     inline void skipOsuString(std::istream& stream) {
         uint8_t indicator = read<uint8_t>(stream);
         if (indicator == 0x00) {

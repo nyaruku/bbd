@@ -3,7 +3,7 @@
 #include <vector>
 #include <nlohmann/json.hpp>
 
-namespace processor::stable::structs {
+namespace processor::osu::structs {
     struct beatmap {
         std::string md5;
         std::string title;

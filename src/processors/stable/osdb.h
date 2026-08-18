@@ -11,7 +11,7 @@
 #include "helper.h"
 #include "structs.h"
 
-namespace processor::stable::osdb {
+namespace processor::osu::stable::osdb {
     // .osdb (CollectionManager by Piotrekol)
     // File layout (version >= 7, which is all current files):
     //   ULEB128+bytes  outer version string (e.g. "o!dm8")
