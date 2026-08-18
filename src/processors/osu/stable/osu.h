@@ -6,7 +6,7 @@
 #include <unordered_map>
 #include <zlib.h>
 #include "helper.h"
-#include "structs.h"
+#include "../structs.h"
 
 namespace processor::osu::stable::osu {
     inline void skipOsuString(std::istream& stream) {

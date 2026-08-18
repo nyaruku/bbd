@@ -9,7 +9,7 @@
 #include <unordered_map>
 #include <zlib.h>
 #include "helper.h"
-#include "structs.h"
+#include "../structs.h"
 
 namespace processor::osu::stable::osdb {
     // .osdb (CollectionManager by Piotrekol)

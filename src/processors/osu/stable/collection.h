@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include "helper.h"
-#include "structs.h"
+#include "../structs.h"
 
 namespace processor::osu::stable::collection {
     inline std::vector<structs::collection> parseCollectionDb(const std::string& path) {
