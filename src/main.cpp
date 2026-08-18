@@ -9,7 +9,7 @@
 
 int main() {
 
-    InitWindow(800, 450, "raylib example - basic window");
+    InitWindow(800, 450, "batch beatmap downloader");
 
     const Font font = LoadFontFromMemory(".ttf", JET_BRAINS_MONO_REGULAR_DATA, JET_BRAINS_MONO_REGULAR_DATA_LEN, 30, nullptr, 0);
     GuiSetFont(font);
