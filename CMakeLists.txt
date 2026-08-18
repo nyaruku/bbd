@@ -15,6 +15,8 @@ set(BUILD_GAMES        OFF       CACHE BOOL   "" FORCE)
 set(OPENGL_VERSION     "1.1"     CACHE STRING "" FORCE)
 set(PLATFORM           "Desktop" CACHE STRING "" FORCE)
 
+set(REALM_NO_TESTS)
+
 # FetchContent
 include(FetchContent)
 FetchContent_Declare(
