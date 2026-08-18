@@ -22,15 +22,24 @@ FetchContent_Declare(
     GIT_REPOSITORY https://github.com/libcpr/cpr.git
     GIT_TAG 1.14.2
 )
+FetchContent_Declare(
+    cpprealm
+    GIT_REPOSITORY https://github.com/nyaruku/cpprealm.git
+    GIT_TAG patched
+)
 FetchContent_MakeAvailable(cpr)
+FetchContent_MakeAvailable(cpprealm)
 
 include_directories(${BASE_INCLUDE_PATH})
 add_executable(${PROJECT_NAME} "./src/main.cpp")
 
+# Suppress all warnings (most of them are from cpprealm)
+add_definitions(-w)
+
 if (WIN32)
     target_link_directories(${PROJECT_NAME} PRIVATE "${BASE_LIB_PATH}/raylib-6.0_win64_msvc16")
-    target_link_libraries(${PROJECT_NAME} PRIVATE raylib cpr::cpr)
+    target_link_libraries(${PROJECT_NAME} PRIVATE raylib cpr::cpr cpprealm)
 elseif (UNIX AND NOT APPLE)
     target_link_directories(${PROJECT_NAME} PRIVATE "${BASE_LIB_PATH}/raylib-6.0_linux_amd64")
-    target_link_libraries(${PROJECT_NAME} PRIVATE raylib cpr::cpr m X11)
+    target_link_libraries(${PROJECT_NAME} PRIVATE raylib cpr::cpr cpprealm m X11)
 endif()
